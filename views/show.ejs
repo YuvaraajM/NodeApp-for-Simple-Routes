@@ -1,0 +1,17 @@
+<% include ./partials/header %>
+<!-- class segment adds a border to the content -->
+<div class="ui main text container segment">
+    <div class="ui huge header"><%= blog.title %></div>
+    <div class="item">
+       <img class="ui centered rounded image" src="<%= blog.image %>">
+       <div class="content">
+        <span><%= blog.created.toDateString() %></span>
+        <p><%= blog.body %></p>
+       </div>
+    </div>
+    <a class="ui orange basic button" href="/blogs/<%= blog._id %>/edit">Edit</a>
+    <form class="delete" action="/blogs/<%= blog._id %>?_method=delete" method="POST" >
+        <button class="ui red basic button">Delete</button>
+    </form>
+</div>
+<% include ./partials/footer %>
